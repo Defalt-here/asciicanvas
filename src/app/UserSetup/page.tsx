@@ -58,7 +58,7 @@ export default function UserSetup() {
         transition={{ delay: 0.4, duration: 0.5, ease: "easeOut" }}
       >
                {/* Size Selector Section */}
-        <div className="bg-white text-black p-6 shadow-md border-2 border-gray-300 mb-6">
+        <div className="bg-white text-black p-6 shadow-md border-5 border-green-500 mb-6">
           <h2 className="text-lg font-bold mb-4 text-center">Canvas Size</h2>
           <div className="flex space-x-4">
             <div className="flex flex-col">
@@ -69,7 +69,7 @@ export default function UserSetup() {
                 placeholder="20"
                 min="5"
                 max="200"
-                className="border-2 border-gray-300 rounded p-2 w-24 text-center focus:outline-none focus:border-blue-500"
+                className="border-green-500 border-b-4 p-2 w-24 text-center focus:outline-none focus:border-blue-500"
                 required
               />
             </div>
@@ -81,7 +81,7 @@ export default function UserSetup() {
                 placeholder="40"
                 min="5"
                 max="200"
-                className="border-2 border-gray-300 rounded p-2 w-24 text-center focus:outline-none focus:border-blue-500"
+                className="border-green-500 border-b-4 p-2 w-24 text-center focus:outline-none focus:border-blue-500"
                 required
               />
             </div>
@@ -89,7 +89,7 @@ export default function UserSetup() {
         </div>
 
         {/* Color Selector Section */}
-        <div className="bg-white text-black p-6 shadow-md border-2 border-gray-300 mb-6">
+        <div className="bg-white text-black p-6 shadow-md border-5 border-green-500 mb-6">
           <h2 className="text-lg font-bold mb-4 text-center">Colors</h2>
           <div className="flex space-x-6">
             <div className="flex flex-col items-center">
@@ -98,7 +98,7 @@ export default function UserSetup() {
                 type="color"
                 name="textColor"
                 defaultValue="#000000"
-                className="w-16 h-12 border-2 border-gray-300 rounded cursor-pointer"
+                className="w-16 h-12 border-2 border-none rounded cursor-pointer"
                 title="Character Color" 
                 required
               />
@@ -109,7 +109,7 @@ export default function UserSetup() {
                 type="color"
                 name="backgroundColor"
                 defaultValue="#ffffff"
-                className="w-16 h-12 border-2 border-gray-300 rounded cursor-pointer"
+                className="w-16 h-12 border-2 border-none rounded cursor-pointer"
                 title="Background Color"
                 required 
               />

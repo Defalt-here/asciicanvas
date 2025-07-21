@@ -160,7 +160,7 @@ const updateCell = (r: number, c: number) => {
                   selectedChar === char ? 'bg-gray-200' : ''
                 }`}
               >
-                {char === " " ? "␣" : char}
+                {char === " " ? "Erase" : char}
               </div>
             ))}
           </div>
@@ -184,6 +184,33 @@ const updateCell = (r: number, c: number) => {
             </button>
           </div>
 
+          {/* Color Pickers */}
+          <div className="flex items-center space-x-4 px-4 border-l-2 border-gray-300 flex-shrink-0">
+            <div className="flex flex-col items-center space-y-1">
+              <label className="text-xs text-black font-medium">Text</label>
+              <input
+                type="color"
+                value={textColor}
+                onChange={(e) => setTextColor(e.target.value)}
+                className="w-10 h-8 border-2 border-none rounded cursor-pointer"
+                title="Text Color"
+              />
+            </div>
+            <div className="flex flex-col items-center space-y-1">
+              <label className="text-xs text-black font-medium">Background</label>
+              <input
+                type="color"
+                value={backgroundColor}
+                onChange={(e) => setBackgroundColor(e.target.value)}
+                className="w-10 h-8 border-2 border-none rounded cursor-pointer"
+                title="Background Color"
+              />
+            </div>
+          </div>
+
+          {/* Spacer to push action buttons to the right */}
+          <div className="flex-grow"></div>
+
           {/* Action Buttons */}
           <div className="flex items-center space-x-2 px-4 border-l-2 border-gray-300 flex-shrink-0">
             <button
@@ -198,33 +225,6 @@ const updateCell = (r: number, c: number) => {
             >
               Download
             </button>
-          </div>
-
-          {/* Spacer to push color pickers to the right */}
-          <div className="flex-grow"></div>
-
-          {/* Color Pickers */}
-          <div className="flex items-center space-x-4 px-4 border-l-2 border-gray-300 flex-shrink-0">
-            <div className="flex flex-col items-center space-y-1">
-              <label className="text-xs text-black font-medium">Text</label>
-              <input
-                type="color"
-                value={textColor}
-                onChange={(e) => setTextColor(e.target.value)}
-                className="w-10 h-8 border-2 border-black rounded cursor-pointer"
-                title="Text Color"
-              />
-            </div>
-            <div className="flex flex-col items-center space-y-1">
-              <label className="text-xs text-black font-medium">Background</label>
-              <input
-                type="color"
-                value={backgroundColor}
-                onChange={(e) => setBackgroundColor(e.target.value)}
-                className="w-10 h-8 border-2 border-black rounded cursor-pointer"
-                title="Background Color"
-              />
-            </div>
           </div>
         </div>
       </div>
