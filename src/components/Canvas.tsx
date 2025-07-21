@@ -178,7 +178,7 @@ const updateCell = (r: number, c: number) => {
             <button
               onClick={addCustomCharacter}
               disabled={!newChar || asciiCharacters.includes(newChar)}
-              className="px-3 py-2 border-2 border-black bg-white text-black hover:bg-gray-100 disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed"
+              className="px-3 py-2 cursor-pointer border-2 border-black bg-white text-black hover:bg-gray-100 disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed"
             >
               Add
             </button>
@@ -188,13 +188,13 @@ const updateCell = (r: number, c: number) => {
           <div className="flex items-center space-x-2 px-4 border-l-2 border-gray-300 flex-shrink-0">
             <button
               onClick={clearCanvas}
-              className="px-3 py-2 border-2 border-red-600 bg-red-50 text-red-600 hover:bg-red-100"
+              className="px-3 py-2 cursor-pointer border-2 border-red-600 bg-red-50 text-red-600 hover:bg-red-100"
             >
               Clear
             </button>
             <button
               onClick={downloadASCII}
-              className="px-3 py-2 border-2 border-green-600 bg-green-50 text-green-600 hover:bg-green-100"
+              className="px-3 cursor-pointer py-2 border-2 border-green-600 bg-green-50 text-green-600 hover:bg-green-100"
             >
               Download
             </button>

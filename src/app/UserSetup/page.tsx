@@ -1,12 +1,17 @@
 "use client";
 
 import { jetBrainsMono } from "@/components/CodeFont";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
 
 export default function UserSetup() {
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    document.title = "Setup Canvas - ASCII Canvas Creator";
+  }, []);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -31,9 +36,28 @@ export default function UserSetup() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className={`${jetBrainsMono.className} flex flex-col items-center justify-center min-h-screen bg-black p-8`}>
-        {/* Size Selector Section */}
+    <motion.form 
+      onSubmit={handleSubmit}
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -50 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
+        <motion.h1 
+          className={`${jetBrainsMono.className} flex flex-col items-center p-8 text-4xl text-green-500`}
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.2, duration: 0.5, ease: "easeOut" }}
+        >
+          Setup your project here
+        </motion.h1>       
+      <motion.div 
+        className={`${jetBrainsMono.className} flex flex-col items-center justify-center mt-10`}
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4, duration: 0.5, ease: "easeOut" }}
+      >
+               {/* Size Selector Section */}
         <div className="bg-white text-black p-6 shadow-md border-2 border-gray-300 mb-6">
           <h2 className="text-lg font-bold mb-4 text-center">Canvas Size</h2>
           <div className="flex space-x-4">
@@ -94,15 +118,28 @@ export default function UserSetup() {
         </div>
 
         {/* Submit Button */}
-        <button
+        <motion.button
           type="submit"
           disabled={isSubmitting}
-          className={`${jetBrainsMono.className} px-8 py-3 bg-white text-black border-2 border-white hover:bg-gray-100 hover:border-gray-100 disabled:opacity-50 disabled:cursor-not-allowed font-medium text-lg transition-colors duration-200`}
-          style={{ borderRadius: '0px' }}
+          className={`${jetBrainsMono.className} cursor-pointer px-8 py-4 text-lg border-2 border-green-500 text-green-500 bg-transparent rounded-lg transition-all duration-300 hover:bg-green-500 hover:text-black disabled:opacity-50 disabled:cursor-not-allowed`}
+          whileHover={{ 
+            scale: isSubmitting ? 1 : 1.1,
+            backgroundColor: isSubmitting ? "transparent" : "#22c55e",
+            color: isSubmitting ? "#22c55e" : "#000000"
+          }}
+          whileTap={{ 
+            scale: isSubmitting ? 1 : 0.95,
+            y: isSubmitting ? 0 : 2
+          }}
+          transition={{ 
+            type: "spring", 
+            stiffness: 300, 
+            damping: 20 
+          }}
         >
-          {isSubmitting ? 'Creating Canvas...' : 'Submit'}
-        </button>
-      </div>
-    </form>
+          {isSubmitting ? 'Creating Canvas...' : 'Create Canvas →'}
+        </motion.button>
+      </motion.div>
+    </motion.form>
   );
 }
